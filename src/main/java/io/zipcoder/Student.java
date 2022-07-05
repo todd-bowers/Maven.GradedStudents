@@ -7,7 +7,7 @@ public class Student {
     private String firstName;
     private String lastName;
     public ArrayList<Double> examScores;
-    public Student(String firstName, String lastName) {
+    public Student(String firstName, String lastName, Double[] examScores) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.examScores = new ArrayList<>();
@@ -29,5 +29,8 @@ public class Student {
             string.add(d.toString());
 
         return String.join(", ", string);
+    }
+    public void addExamScore(double examScore) {
+        examScores.add(examScore);
     }
 }
