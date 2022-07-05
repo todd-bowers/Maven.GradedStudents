@@ -1,6 +1,7 @@
 package io.zipcoder;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Student {
     private String firstName;
@@ -21,4 +22,12 @@ public class Student {
     public void setLastName(String lastName) {this.lastName = lastName;}
 
     public Integer getNumberOfExamsTaken() {return examScores.size();}
+
+    public String getExamScores() {
+        List<String> string = new ArrayList<>();
+        for (Double d : examScores)
+            string.add(d.toString());
+
+        return String.join(", ", string);
+    }
 }
