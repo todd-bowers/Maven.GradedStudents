@@ -37,6 +37,21 @@ public class StudentTest {
         Assert.assertNotEquals(null, retrievedFirstName);
         Assert.assertNotEquals(null, retrievedLastName);
     }
+
+    @Test
+    public void getExamScoresTest() {
+        //Given
+        String firstName = "Todd";
+        String lastName = "Bowers";
+        Double[] examScores = { 100.0, 95.0, 123.0, 96.0};
+        Student student = new Student(firstName, lastName, examScores);
+
+        //When
+        String output = student.getExamScores();
+
+        //Then
+        System.out.println(output);
+    }
     @Test
     public void addExamScoresTest() {
         //Given

@@ -2,6 +2,7 @@ package io.zipcoder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Student {
     private String firstName;
@@ -24,11 +25,10 @@ public class Student {
     public Integer getNumberOfExamsTaken() {return examScores.size();}
 
     public String getExamScores() {
-        List<String> string = new ArrayList<>();
-        for (Double d : examScores)
-            string.add(d.toString());
-
-        return String.join(", ", string);
+//        List<String> string = new ArrayList<>();
+//        for (Double d : examScores)
+//            string.add(d.toString());
+        return examScores.stream().map(Object::toString).collect(Collectors.joining(", "));
     }
     public void addExamScore(double examScore) {
         examScores.add(examScore);
