@@ -88,4 +88,20 @@ public class StudentTest {
         System.out.println(output);
         Assert.assertNotEquals(110.0, result, 0);
     }
+
+    @Test
+    public void setExamScoreTest() {
+        //Given
+        String firstName = "Todd";
+        String lastName = "Bowers";
+        Double[] examScores = { 100.0};
+        Student student = new Student(firstName, lastName, examScores);
+
+        //When
+        student.setExamScores(1, 150.0);
+        String output = student.getExamScores();
+
+        //Then
+        System.out.println(output);
+    }
 }

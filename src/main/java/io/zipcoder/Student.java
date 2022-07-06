@@ -25,12 +25,17 @@ public class Student {
     public Integer getNumberOfExamsTaken() {return examScores.size();}
 
     public String getExamScores() {
-//        List<String> string = new ArrayList<>();
+//        List<String> string = new ArrayList<String>();
 //        for (Double d : examScores)
 //            string.add(d.toString());
         return examScores.stream().map(Object::toString).collect(Collectors.joining(", "));
     }
     public void addExamScore(double examScore) {
         examScores.add(examScore);
+    }
+
+    public void setExamScores(int examNumber, double newScore) {
+        examNumber -= 1;
+        examScores.set(examNumber, newScore);
     }
 }
