@@ -1,8 +1,6 @@
 package io.zipcoder;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Student {
     private String firstName;
@@ -39,5 +37,12 @@ public class Student {
 
     public void setExamScore(int examNumber, double newScore) {
         examScores[examNumber-1] = newScore;
+    }
+
+    public double getAverageExamScore() {
+        double sum = 0;
+        for (double i : examScores)
+            sum += i;
+        return (sum/examScores.length);
     }
 }

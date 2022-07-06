@@ -104,4 +104,18 @@ public class StudentTest {
         System.out.println(output);
         Assert.assertEquals("[150.0]", output);
     }
+
+    @Test
+    public void getAverageExamScoreTest() {
+        //Given
+        String firstName = "Todd";
+        String lastName = "Bowers";
+        Double[] examScores = { 100.0, 150.0, 250.0, 0.0 };
+        Student student = new Student(firstName, lastName, examScores);
+        //When
+        Double output = Double.valueOf(student.getAverageExamScore());
+        //Then
+        System.out.println(output);
+        Assert.assertEquals("125.0", output.toString());
+    }
 }
