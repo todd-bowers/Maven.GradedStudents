@@ -45,4 +45,13 @@ public class Student {
             sum += i;
         return (sum/examScores.length);
     }
+
+    public String toString() {
+        System.out.println("Student Name: " + firstName + " " + lastName);
+        System.out.println("Average Score: " + getAverageExamScore());
+        for (int i = 0; i < examScores.length; i++) {
+            System.out.println("Exam " + (i+1) + ": " + examScores[i]);
+        }
+        return "";
+    }
 }

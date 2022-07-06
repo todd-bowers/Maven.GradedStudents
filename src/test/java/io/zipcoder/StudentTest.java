@@ -118,4 +118,16 @@ public class StudentTest {
         System.out.println(output);
         Assert.assertEquals("125.0", output.toString());
     }
+
+    @Test
+    public void toStringTest() {
+        String firstName = "Todd";
+        String lastName = "Bowers";
+        Double[] examScores = { 100.0, 150.0, 250.0, 0.0 };
+        Student student = new Student(firstName, lastName, examScores);
+        //When
+        String output = student.toString();
+        //Then
+        System.out.println(output);
+    }
 }
