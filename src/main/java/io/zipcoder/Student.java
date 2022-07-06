@@ -1,17 +1,17 @@
 package io.zipcoder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Student {
     private String firstName;
     private String lastName;
-    public ArrayList<Double> examScores;
+    public Double[] examScores;
     public Student(String firstName, String lastName, Double[] examScores) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.examScores = new ArrayList<>();
+        this.examScores = examScores;
     }
 
     public String getFirstName() {return firstName;}
@@ -22,20 +22,22 @@ public class Student {
 
     public void setLastName(String lastName) {this.lastName = lastName;}
 
-    public Integer getNumberOfExamsTaken() {return examScores.size();}
+    public Integer getNumberOfExamsTaken() {return examScores.length;}
 
     public String getExamScores() {
-//        List<String> string = new ArrayList<String>();
-//        for (Double d : examScores)
-//            string.add(d.toString());
-        return examScores.stream().map(Object::toString).collect(Collectors.joining(", "));
+        return Arrays.toString(examScores);
+//        List string = Arrays.asList(examScores);
+//        return String.valueOf(string);
+//        return examScores.stream().map(Object::toString).collect(Collectors.joining(", "));
     }
-    public void addExamScore(double examScore) {
-        examScores.add(examScore);
+    public void addExamScore(double score) {
+        Double[] updated = new Double[examScores.length + 1];
+        System.arraycopy(examScores, 0, updated, 0, examScores.length);
+        updated[updated.length-1] = score;
+        examScores = updated;
     }
 
-    public void setExamScores(int examNumber, double newScore) {
-        examNumber -= 1;
-        examScores.set(examNumber, newScore);
+    public void setExamScore(int examNumber, double newScore) {
+        examScores[examNumber-1] = newScore;
     }
 }

@@ -3,6 +3,8 @@ package io.zipcoder;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class StudentTest {
 
     @Test
@@ -51,6 +53,7 @@ public class StudentTest {
 
         //Then
         System.out.println(output);
+        Assert.assertEquals(Arrays.toString(examScores), output);
     }
     @Test
     public void addExamScoresTest() {
@@ -58,17 +61,15 @@ public class StudentTest {
         String firstName = "Todd";
         String lastName = "Bowers";
         Double[] examScores = { };
-        double score1 = 100.0;
         Student student = new Student(firstName, lastName, examScores);
 
         //When
-        student.addExamScore(score1);
+        student.addExamScore(100.0);
         String output = student.getExamScores();
-        double result = Double.parseDouble(student.getExamScores());
 
         //Then
         System.out.println(output);
-        Assert.assertEquals(score1, result, 0);
+        Assert.assertEquals("[100.0]", output);
     }
     @Test
     public void addExamScoresTest2() {
@@ -76,17 +77,15 @@ public class StudentTest {
         String firstName = "Todd";
         String lastName = "Bowers";
         Double[] examScores = { };
-        double score1 = 100.0;
         Student student = new Student(firstName, lastName, examScores);
 
         //When
-        student.addExamScore(score1);
+        student.addExamScore(100.0);
         String output = student.getExamScores();
-        double result = Double.parseDouble(student.getExamScores());
 
         //Then
         System.out.println(output);
-        Assert.assertNotEquals(110.0, result, 0);
+        Assert.assertNotEquals("[110.0]", output);
     }
 
     @Test
@@ -94,14 +93,15 @@ public class StudentTest {
         //Given
         String firstName = "Todd";
         String lastName = "Bowers";
-        Double[] examScores = { 100.0};
+        Double[] examScores = { 100.0 };
         Student student = new Student(firstName, lastName, examScores);
 
         //When
-        student.setExamScores(1, 150.0);
+        student.setExamScore(1, 150.0);
         String output = student.getExamScores();
 
         //Then
         System.out.println(output);
+        Assert.assertEquals("[150.0]", output);
     }
 }
